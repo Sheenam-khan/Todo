@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, Table ,Button ,Tag} from 'antd';
-import { DeleteFilled, DeleteTwoTone } from '@ant-design/icons';
+import { DeleteFilled } from '@ant-design/icons';
 import TodoItem from './TodoItem';
 
 const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
@@ -25,17 +25,17 @@ const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
       ];
     return (
         <>
-        {/* <List
+        <List
             bordered
             dataSource={todos}
             renderItem={todo => (
                 <TodoItem key={todo.id} todo={todo} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
             )}
-        /> */}
-        <Table
+        />
+        {/* <Table
         columns={columns}
         dataSource={todos?.map(item=>({...item,key:item?.id}))}
-        />
+        /> */}
         </>
     );
 };
