@@ -1,4 +1,4 @@
-import { Layout, Typography } from 'antd';
+import { Layout, Skeleton, Typography } from 'antd';
 import TodoList from './TodoList';
 import AddTodo from './AddTodo';
 import Filter from './Filter';
@@ -7,7 +7,7 @@ const { Header, Content } = Layout;
 const { Title } = Typography;
 
 const TodoApp = () => {
-    const {filteredTodos,filter,setFilter,addTodo,deleteTodo,toggleTodo}=useTodo()
+    const {setFilter,addTodo,deleteTodo,toggleTodo,filteredTodos=[],filter='all',loading=false}=useTodo()
     return (
         <Layout>
             <Header>
@@ -16,7 +16,9 @@ const TodoApp = () => {
             <Content style={{ padding: '20px' }}>
                 <AddTodo addTodo={addTodo} />
                 <Filter setFilter={setFilter} filter={filter} />
+                <Skeleton loading={loading} active>
                 <TodoList todos={filteredTodos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
+                </Skeleton>
             </Content>
         </Layout>
     );
